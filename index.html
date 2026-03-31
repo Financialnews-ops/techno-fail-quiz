@@ -702,6 +702,72 @@ const QUESTIONS = [
         riposte: "Mądra decyzja. Scena tego nie zobaczy. Organizator stwierdzi, że frekwencja była niska bo 'ludzie nie rozumieją muzyki'. Koło się zamyka."
       }
     ]
+  },
+  // NOWE PYTANIE 1 – od użytkownika
+  {
+    scenario: "Jedziesz na imprezę na przedmieścia Krakowa, do uchodzącego za elitarny, znanego klubu w stylu 'warehouse', który mieści się w starym hangarze - na gig, na którym zagra zagraniczny, popularny DJ hard techno. Wchodzisz ze znajomymi do klubu, odnosicie kurtki do szatni, idziecie chwilę potańczyć, a za 5 minut na salę wbiegają jacyś mężczyźni, gonią się, zaczynasz się dusić, wszyscy pozostali bawiący się również.",
+    prompt: "Co robisz?",
+    answers: [
+      {
+        text: "tańczysz dalej, chrzanić to, SOR jest dla słabych",
+        icon: "💪",
+        riposte: "Właściwie to SOR jest dla ludzi, którzy mają problemy z oddychaniem, ale Ty masz misję – przetańczyć ten gaz łzawiący. Organizator nazwie to później 'immersyjnym doświadczeniem'."
+      },
+      {
+        text: "razem ze znajomymi wracacie taksą do domu",
+        icon: "🚕",
+        riposte: "Zdrowy rozsądek wygrywa. Szkoda tylko, że za tę taksę zapłacisz tyle co za bilet. Organizator pewnie wrzuci za godzinę story: 'vibe był nieziemski 🔥'."
+      },
+      {
+        text: "dołączasz się do gonitwy",
+        icon: "🏃",
+        riposte: "Tworzysz nowy sport ekstremalny – parkour w klubie. Niestety nie ma nagrody, a jedyne co wygrywasz to zadyszka i zdziwienie ochrony, która pyta 'co pan robi?'."
+      }
+    ]
+  },
+  // NOWE PYTANIE 2 – dodatkowe
+  {
+    scenario: "Po imprezie dostajesz ankietę od organizatora: 'Jak oceniasz jakość dźwięku?'",
+    prompt: "Wiesz, że system dźwiękowy ledwo dawał radę, bas trząsł tylko ścianami, a góra była nieczytelna. Wybierasz:",
+    answers: [
+      {
+        text: "1/5 – było słabo, ale nikt nie zapytał na miejscu, a teraz i tak nie ma to znaczenia",
+        icon: "🔇",
+        riposte: "Szczerość doceniona. Ankieta wyląduje w koszu, ale przynajmniej masz świadomość, że nie jesteś sam. Kolejna impreza będzie miała to samo nagłośnienie."
+      },
+      {
+        text: "5/5 – bo 'trzeba wspierać' i nie wypada marudzić",
+        icon: "🙈",
+        riposte: "Klasyczna postawa polskiego uczestnika. Problem nie istnieje, dopóki wszyscy udają, że jest super. Scena nie rozwija się przez nadmiar dyplomacji."
+      },
+      {
+        text: "nie wypełniasz ankiety, bo po co",
+        icon: "🗑️",
+        riposte: "Najpopularniejsza opcja. Organizator zobaczy 3 odpowiedzi, wszystkie 5/5 od ekipy, i uzna, że wszystko było idealne. Kolejny event z tym samym failem."
+      }
+    ]
+  },
+  // NOWE PYTANIE 3 – dodatkowe
+  {
+    scenario: "W klubie ogłaszają konkurs na 'najlepszą stylizację'. Nagroda: voucher do pobliskiego baru. Wyglądasz jakbyś szedł na siłownię, ale czujesz się wygodnie.",
+    prompt: "Twoje podejście:",
+    answers: [
+      {
+        text: "startujesz, bo to nie konkurs piękności, a 'vibe' się liczy",
+        icon: "✨",
+        riposte: "Organizator patrzy na Ciebie z politowaniem i daje voucher typowi w skórzanej kurtce i okularach przeciwsłonecznych o 2 w nocy. Bo 'to bardziej klubowe'."
+      },
+      {
+        text: "ignorujesz, bo wiesz, że i tak wygra osoba z 'najbardziej' wydmuszkową stylizacją",
+        icon: "🎭",
+        riposte: "Masz rację – konkursy wizualne w techno są jak najbardziej antytechno. Ale w Polsce to już standard, żeby przyciągnąć 'influencerów'."
+      },
+      {
+        text: "komentujesz pod postem konkursowym, że to nie jest 'najlepszy dresscode' tylko próba wprowadzenia modowej presji",
+        icon: "📢",
+        riposte: "Komentarz dostaje 23 polubienia, ale organizator go usuwa, a Ty dostajesz bana na wydarzeniu. Wolność słowa w undergroundzie jest, dopóki nie dotyka sponsora."
+      }
+    ]
   }
 ];
 
@@ -754,7 +820,7 @@ function renderQuestion() {
   riposte.classList.remove('visible');
   const btnNext = document.getElementById('btn-next');
   btnNext.classList.remove('visible');
-  btnNext.textContent = '';
+  btnNext.innerHTML = '';
   const span = document.createElement('span');
   span.textContent = currentQ < QUESTIONS.length - 1 ? 'NASTĘPNE →' : 'PODSUMOWANIE →';
   btnNext.appendChild(span);
@@ -834,7 +900,7 @@ function restartQuiz() {
 }
 
 // Init
-document.getElementById('question-count').textContent = `// ${QUESTIONS.length} pytań // czas: ~3 minuty`;
+document.getElementById('question-count').textContent = `// ${QUESTIONS.length} pytań // czas: ~4 minuty`;
 </script>
 </body>
 </html>
